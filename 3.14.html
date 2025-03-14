@@ -6,32 +6,29 @@
 <body>
 
 <head>
-<style> 
-div {
-  width: 200px;
-  height: 100px;
-  background-color: radial-gradient(circle at center,red,yellow);
-  animation-name: qqq;
-  animation-duration: 1s;
-  animation-interation-count:infinite;
-  animation-delay:0s;
-  position:relative;
-}
+  <style>
+    div {
+      width: 200px;
+      height: 100px;
+      animation-name: qqq;
+       background-image: radial-gradient(circle at center, red, yellow); 
+      animation-duration: 4s;
+      animation-iteration-count: infinite;
+      animation-delay: 0s;
+      position: relative;
+      border-radius: 50%;
+    }
 
-@keyframes qqq {
-  background-image:radial-gradient(red,10%,yellow); left:100px;
-}
-</style>
+    @keyframes qqq {
+        background-image: radial-gradient(circle at center, red, yellow); 
+    }
+  </style>
 </head>
+
 <body>
-
-<h1>CSS Animation</h1>
-
-<div></div>
-
-<p><b>Note:</b> When an animation is finished, it goes back to its original style.</p>
-
-
+  <h1>CSS Animation</h1>
+  <div></div>
+  <p><b>Note:</b> When an animation is finished, it goes back to its original style.</p >
   
   <table border="1" cellpadding="5" cellspacing="0">
     <tr><td colspan=5 align=center><h1 style="text-align: center;">个人简历</h1></td></tr>
