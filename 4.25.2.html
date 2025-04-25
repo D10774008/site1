@@ -1,0 +1,14 @@
+onload = sortByName;
+let sortByName = function () {
+    const tbl = document.getElementsByTagName('table')[0];
+    const rows = Array.from(tbl.rows).slice(1);    rows.sort((a, b) => {
+        const nameA = a.cells[0].textContent.toLowerCase();
+        const nameB = b.cells[0].textContent.toLowerCase();
+        if (nameA < nameB) return -1;
+        if (nameA > nameB) return 1;
+        return 0;
+    });
+    const fragment = document.createDocumentFragment();
+    rows.forEach(row => fragment.appendChild(row));
+    tbl.appendChild(fragment);
+};
