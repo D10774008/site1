@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF - 8">
+    <meta name="viewport" content="width=device-width, initial - scale=1.0">
+    <title>Balloon Experiment</title>
+    <style>
+       .balloon {
+            width: 50px;
+            height: 50px;
+            border - radius: 50%;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="balloonContainer"></div>
+    <script>
+        const colors = ['red', 'orange', 'yellow', 'green', 'black', 'blue', 'purple'];
+        const numBalloons = 5;
+        const riseSpeed = 0.5;
+        const burstHeight = 200;
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            const randomColorIndex = Math.floor(Math.random() * colors.length);
+            balloon.style.backgroundColor = colors[randomColorIndex];
+            balloon.style.left = Math.random() * window.innerWidth + 'px';
+            balloon.style.top = window.innerHeight + 'px';
+            return balloon;
+        }
+
+        const balloonContainer = document.getElementById('balloonContainer');
+        const balloons = [];
+        for (let i = 0; i < numBalloons; i++) {
+            const newBalloon = createBalloon();
+            balloonContainer.appendChild(newBalloon);
+            balloons.push(newBalloon);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            balloons.forEach(balloon => {
+                const currentTop = parseFloat(balloon.style.top);
+                const currentWidth = parseFloat(balloon.style.width);
+                const currentHeight = parseFloat(balloon.style.height);
+                balloon.style.top = (currentTop - riseSpeed) + 'px';
+                balloon.style.width = (currentWidth + 0.1) + 'px';
+                balloon.style.height = (currentHeight + 0.1) + 'px';
+                if (currentTop - riseSpeed <= -burstHeight) {
+                    balloon.remove();
+                }
+            });
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
